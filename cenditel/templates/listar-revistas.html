@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% block titulo %}Lista de Revistas{% endblock %}
+{% block cuerpo %}
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+<table align="center">    
+    <tr>
+        <h3 align="center">Revistas</h3>
+        <th>Número</th>
+        <th>Nombre</th>
+        <th>Fecha Publicación</th>
+        <th>¿Arbitrada?</th>
+        <th>¿Realizada en CENDITEL?</th>
+        <th>URL</th>
+    </tr>
+    {% for revista in revistas %}
+    <tr>
+        <th>{{ revista.rev_num }}</th>
+        <th>{{ revista.rev_nom }}</th>
+        <th>{{ revista.rev_date }}</th>
+        <th>{{ revista.rev_arb }}</th>
+        <th>{{ revista.rev_cenditel }}</th>
+        <th>{{ revista.rev_url }}</th>
+    </tr>
+    {% endfor %}  
+</table>
+
+{% endblock %}
